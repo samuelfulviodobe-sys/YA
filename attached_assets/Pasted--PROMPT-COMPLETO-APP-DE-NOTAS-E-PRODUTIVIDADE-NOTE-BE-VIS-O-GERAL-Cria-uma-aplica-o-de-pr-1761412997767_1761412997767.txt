@@ -1,0 +1,167 @@
+🧠 PROMPT COMPLETO — APP DE NOTAS E PRODUTIVIDADE (NOTE BE)
+🎯 VISÃO GERAL
+
+Cria uma aplicação de produtividade e organização pessoal chamada Note Be, cujo foco é anotar, refletir e agir com método.
+A app combina notas inteligentes, calendário, e técnicas de produtividade comprovadas como Pomodoro, Kaizen e Eisenhower, para ajudar o utilizador a estruturar o seu tempo e progresso pessoal.
+
+🧩 FUNÇÕES PRINCIPAIS
+1️⃣ Criação e Organização de Notas
+
+Criar, editar e excluir notas.
+
+Salvamento automático.
+
+Organização por categorias ou tags (ex: Estudo, Trabalho, Pessoal).
+
+Favoritos para acesso rápido.
+
+Suporte a texto, checklists, e imagens.
+
+Campos: Título, Conteúdo, Data de criação/atualização.
+
+Busca e filtros por palavra-chave, tag ou data.
+
+2️⃣ Técnicas de Produtividade Integradas
+⏱️ Pomodoro Timer
+
+Cronômetro clássico (25 min de foco + 5 min de pausa).
+
+Configuração de intervalos e ciclos personalizados.
+
+Histórico simples de sessões concluídas.
+
+Notificação sonora/vibratória no fim do ciclo.
+
+🔁 Método Kaizen
+
+Página ou seção de melhoria contínua.
+
+Campo para registrar pequenas metas diárias (ex: “Hoje vou melhorar 1% em leitura”).
+
+Visual de progresso diário/semanal.
+
+Resumo semanal de evolução.
+
+🧭 Matriz de Eisenhower
+
+Interface simples para classificar tarefas em:
+
+Urgente e Importante
+
+Importante mas não urgente
+
+Urgente mas não importante
+
+Nem urgente nem importante
+
+Permitir criar tarefas rápidas em cada quadrante.
+
+Ligação opcional com notas existentes.
+
+3️⃣ Calendário Integrado
+
+Exibe notas e tarefas por data.
+
+Marcação visual dos dias com notas registradas.
+
+Toque em uma data → lista de notas daquele dia.
+
+Botão “Criar Nota” direto no calendário.
+
+Visualização mensal e semanal.
+
+4️⃣ Design e Experiência
+
+Interface minimalista, fluida e moderna.
+
+Suporte a modo claro e escuro.
+
+Animações suaves de abertura, criação e exclusão de notas.
+
+Layout principal:
+
+Página inicial → lista de notas + campo de busca.
+
+Página de criação → editor limpo e intuitivo.
+
+Página de calendário → visual interativo.
+
+Página de técnicas → Pomodoro, Kaizen e Eisenhower.
+
+5️⃣ Sistema de Backup / Exportação
+
+Exportar notas como .txt, .pdf ou markdown.
+
+Opção de backup manual em serviços de nuvem (Google Drive, Dropbox, etc.).
+
+Sem necessidade de login para usar — app 100% local e privada.
+
+🧭 ESTRUTURA DE TELAS
+🏠 Home — Lista de Notas
+
+Campo de busca no topo.
+
+Botão flutuante (+) para nova nota.
+
+Lista de notas com:
+
+Título
+
+Tag/categoria
+
+Data
+
+Preview do conteúdo.
+
+📝 Criação / Edição de Nota
+
+Campos:
+
+Título
+
+Conteúdo (campo de texto longo)
+
+Tags (chips coloridos)
+
+Botões: Salvar, Excluir, Voltar.
+
+📅 Calendário
+
+Modo mensal com dias destacados.
+
+Clicar em um dia → lista de notas criadas.
+
+Opção “Nova Nota” rápida.
+
+⏰ Técnicas de Produtividade
+
+Pomodoro: timer visual com pausa, iniciar e redefinir.
+
+Kaizen: pequenas metas e progresso.
+
+Eisenhower: quadrantes com tarefas rápidas.
+
+⚙️ Configurações
+
+Alternar tema claro/escuro.
+
+Backup/exportação.
+
+Gerir categorias e tags.
+
+💡 FUNCIONALIDADES FUTURAS
+
+Gravação de notas por voz.
+
+Estatísticas de produtividade (tempo de foco, número de notas, etc.).
+
+Widgets de notas e Pomodoro na tela inicial.
+
+Modo “Foco total” (bloqueia distrações durante sessões Pomodoro).
+
+Integração entre notas e tarefas de cada método.
+
+💬 DESCRIÇÃO RESUMIDA
+
+Note Be é uma aplicação de produtividade que combina notas pessoais, organização com calendário, e técnicas clássicas de foco e melhoria contínua — tudo num único ambiente simples e motivador.
+Ajuda o utilizador a anotar, planejar e evoluir diariamente com clareza e equilíbrio.
