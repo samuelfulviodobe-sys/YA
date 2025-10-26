@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Download, FileText, Moon, Sun } from "lucide-react";
+import { Download, FileText, Moon, Sun, File } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useTheme } from "@/components/theme-provider";
 import { useToast } from "@/hooks/use-toast";
 import { type Note } from "@shared/schema";
+import { jsPDF } from "jspdf";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
@@ -91,6 +92,83 @@ export default function SettingsPage() {
     });
   };
 
+  const exportAsPDF = () => {
+    if (!notes || notes.length === 0) {
+      toast({
+        title: "No notes to export",
+        description: "Create some notes first before exporting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsExporting(true);
+
+    try {
+      const doc = new jsPDF();
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const margin = 20;
+      const maxWidth = pageWidth - 2 * margin;
+      let yPosition = margin;
+
+      notes.forEach((note, index) => {
+        if (index > 0) {
+          doc.addPage();
+          yPosition = margin;
+        }
+
+        doc.setFontSize(16);
+        doc.setFont("helvetica", "bold");
+        const titleLines = doc.splitTextToSize(note.title || "Untitled", maxWidth);
+        doc.text(titleLines, margin, yPosition);
+        yPosition += titleLines.length * 8;
+
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(100);
+        doc.text(`Date: ${new Date(note.createdAt).toLocaleString()}`, margin, yPosition);
+        yPosition += 6;
+
+        if (note.tags.length > 0) {
+          doc.text(`Tags: ${note.tags.join(", ")}`, margin, yPosition);
+          yPosition += 6;
+        }
+
+        doc.setTextColor(0);
+        yPosition += 4;
+
+        if (note.content) {
+          doc.setFontSize(11);
+          const contentLines = doc.splitTextToSize(note.content, maxWidth);
+          contentLines.forEach((line: string) => {
+            if (yPosition > pageHeight - margin) {
+              doc.addPage();
+              yPosition = margin;
+            }
+            doc.text(line, margin, yPosition);
+            yPosition += 6;
+          });
+        }
+      });
+
+      doc.save(`notes-${new Date().toISOString().split("T")[0]}.pdf`);
+
+      setIsExporting(false);
+      toast({
+        title: "Notes exported",
+        description: "Your notes have been exported as a PDF file.",
+      });
+    } catch (error) {
+      setIsExporting(false);
+      toast({
+        title: "Export failed",
+        description: "An error occurred while exporting to PDF.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
@@ -171,6 +249,16 @@ export default function SettingsPage() {
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export as Markdown (.md)
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full justify-start"
+                onClick={exportAsPDF}
+                disabled={isExporting || !notes || notes.length === 0}
+                data-testid="button-export-pdf"
+              >
+                <File className="w-4 h-4 mr-2" />
+                Export as PDF (.pdf)
               </Button>
             </CardContent>
           </Card>
