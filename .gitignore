@@ -1,0 +1,62 @@
+# Android
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.ap_
+*.aab
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# Android Studio
+*.iml
+.idea/
+.navigation/
+captures/
+output.json
+
+# Keystore files (NUNCA commitar!)
+*.jks
+*.keystore
+
+# APK output folders
+app/build/
+app/release/
+android/app/build/
+android/app/release/
+
+# Android local config (contém SDK path e senhas)
+android/local.properties
+android/gradle.properties
+
+# Capacitor
+.capacitor/
+android/.gradle/
+android/build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Misc
+.DS_Store
+*.log
+*.swp
+*~
