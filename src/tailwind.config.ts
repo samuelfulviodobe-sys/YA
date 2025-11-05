@@ -1,12 +1,10 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
 darkMode: ["class"],
 content: [
-"./index.html",
 "./client/index.html",
-"./client/src/**/*.{js,jsx,ts,tsx}",
-"./src/**/*.{js,jsx,ts,tsx}"
+"./client/src/**/*.{js,ts,jsx,tsx}"
 ],
 theme: {
 extend: {
@@ -20,7 +18,7 @@ background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
         border: "hsl(var(--border) / <alpha-value>)",
         input: "hsl(var(--input) / <alpha-value>)",
-        // (mantém o resto das tuas cores aqui)
+        // ...mantém suas outras cores aqui
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
@@ -44,4 +42,6 @@ background: "hsl(var(--background) / <alpha-value>)",
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
-} satisfies Config;
+};
+
+export default config;
