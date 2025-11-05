@@ -7,6 +7,13 @@ export default defineConfig({
   root: "client",
   build: {
     outDir: "../dist/client",
+    rollupOptions: {
+      // Evita erros de módulos não resolvidos (comuns no Render)
+      external: (id) => {
+        // Ignora módulos do Node.js (node:fs, etc) e caminhos estranhos
+        return /^node:/.test(id) || id.includes("\0") || id.startsWith("virtual:");
+      },
+    },
   },
   resolve: {
     alias: {
