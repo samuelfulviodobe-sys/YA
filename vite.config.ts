@@ -7,17 +7,14 @@ export default defineConfig({
   root: "client",
   build: {
     outDir: "../dist/client",
-    emptyOutDir: true, // ← Resolve o aviso "outDir não será esvaziado"
+    emptyOutDir: true,  // Resolve aviso de outDir
     rollupOptions: {
-      // ← RESOLVE O ERRO "externalizar este módulo"
       external: (id) => {
+        // Ignora módulos virtuais/problemáticos
         return (
           id.startsWith("virtual:") ||
           id.includes("\0") ||
-          /^node:/.test(id) ||
-          // Adicione aqui qualquer módulo que ainda falhar (ex: se for "lucide-react")
-          // id === "lucide-react"
-          false
+          /^node:/.test(id)
         );
       },
     },
