@@ -7,15 +7,10 @@ export default defineConfig({
   root: "client",
   build: {
     outDir: "../dist/client",
-    emptyOutDir: true,  // Resolve aviso de outDir
+    emptyOutDir: true, // Resolve o aviso de outDir
     rollupOptions: {
       external: (id) => {
-        // Ignora módulos virtuais/problemáticos
-        return (
-          id.startsWith("virtual:") ||
-          id.includes("\0") ||
-          /^node:/.test(id)
-        );
+        return id.startsWith("virtual:") || id.includes("\0") || /^node:/.test(id);
       },
     },
   },
